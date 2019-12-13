@@ -67,6 +67,10 @@ class DatabaseFeatures(BaseDatabaseFeatures):
     def is_postgresql_10(self):
         return self.connection.pg_version >= 100000
 
+    @cached_property
+    def is_postgresql_11(self):
+        return self.connection.pg_version >= 110000
+
     has_select_for_update_skip_locked = property(operator.attrgetter('is_postgresql_9_5'))
     has_brin_index_support = property(operator.attrgetter('is_postgresql_9_5'))
     has_jsonb_agg = property(operator.attrgetter('is_postgresql_9_5'))
@@ -74,4 +78,5 @@ class DatabaseFeatures(BaseDatabaseFeatures):
     has_gin_pending_list_limit = property(operator.attrgetter('is_postgresql_9_5'))
     supports_ignore_conflicts = property(operator.attrgetter('is_postgresql_9_5'))
     has_phraseto_tsquery = property(operator.attrgetter('is_postgresql_9_6'))
+    has_websearch_to_tsquery = property(operator.attrgetter('is_postgresql_11'))
     supports_table_partitions = property(operator.attrgetter('is_postgresql_10'))

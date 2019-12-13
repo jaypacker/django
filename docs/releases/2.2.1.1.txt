@@ -1,0 +1,9 @@
+============================================
+Django 2.2.1.1 release notes (fork)
+============================================
+
+:mod:`django.contrib.postgres`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* :class:`~django.contrib.postgres.search.SearchQuery` now supports
+  ``'websearch'`` search type on PostgreSQL 11+.
